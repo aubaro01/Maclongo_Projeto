@@ -1,5 +1,3 @@
-<? php
-
 <footer>
     <div class="footer">
         <div class="footer-icon">
@@ -11,5 +9,3 @@
     <p>By<a href="https://github.com/aubaro01">Aubaro</a></p>
 </footer>
 
-
-  ?>
