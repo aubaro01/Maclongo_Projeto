@@ -32,26 +32,11 @@ require_once 'php/funcs.php';
 </head>
 <body>
 <header>
-    <nav>
-        <a href="/index.php" class="logo">MACLONGO</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul id="nav-links">
-            <li><a href="/php/Produtos.php" onclick="toggleMenu()">Produtos</a></li>
-            <li><a href="/php/Servicos.php" onclick="toggleMenu()">Serviços</a></li>
-            <li><a href="/php/Marcas.php" onclick="toggleMenu()">Marcas</a></li>
-            <li><a href="/php/Empresa.php" onclick="toggleMenu()">Empresa</a></li>
-            <li><a href="#contactos" onclick="toggleMenu()">Contactos</a></li>
-            <li><a href="/php/login.php" class="login-btn" onclick="toggleMenu()">Login</a></li> 
-        </ul>
-    </nav>
+    <?php 
+    include("./Templates/navBar.php");
+    ?>
 </header>
 
-
-<!-- Seção Home -->
 <section id="home" class="section-home">
     <h1>Bem-vindo à MACLONGO</h1>
     <p>Oferecemos produtos e serviços de alta qualidade para a sua indústria.</p>
@@ -60,7 +45,6 @@ require_once 'php/funcs.php';
 <main>
 
 <section id="aboutUS" class="about-section">
- <!-- Seção Sobre a Empresa -->
   <div class="container">
     <div class="about-content">
       <div class="about-text">
@@ -80,7 +64,6 @@ require_once 'php/funcs.php';
   </div>
 </section>
 
-<!-- Seção Produtos -->
 <section id="produtos" class="produtos-container">
     <h2 style="text-align: center;"><strong>Nossos Produtos</strong></h2>
 <div class="product-carousel">
@@ -113,9 +96,6 @@ require_once 'php/funcs.php';
 </div>
 </section>
 
-
-
-<!-- Seção Serviços -->
 <section id="servicos" class="sec_servicos">
     <h2><strong>Nossos Serviços</strong></h2>
     <div class="container_service">
@@ -135,7 +115,6 @@ require_once 'php/funcs.php';
     </div>
 </section>
 
-<!-- Seção Contactos -->
 <section class="contact_container" id="contactos">
   <div class="contact-details">
     <h2><strong>Onde estamos</strong></h2>
@@ -181,23 +160,21 @@ require_once 'php/funcs.php';
                 </div>
             </form>
 </div>
-
 </section>
 
-<!--Marcas com Carrossel -->
 <section id="marcas">
 <div class="brand-carousel-fila">
     <div class="carousel-track">
-        <div class="carousel-item"><img src="img/marcas/marca10.jpg" alt="Brand 1"></div>
-        <div class="carousel-item"><img src="img/marcas/marca11.jpg" alt="Brand 2"></div>
-        <div class="carousel-item"><img src="img/marcas/marca13.jpg" alt="Brand 3"></div>
-        <div class="carousel-item"><img src="img/marcas/marca14.png" alt="Brand 4"></div>
-        <div class="carousel-item"><img src="img/marcas/marca16.png" alt="Brand 5"></div>
-        <div class="carousel-item"><img src="img/marcas/marca32.jpg" alt="Brand 1"></div>
-        <div class="carousel-item"><img src="img/marcas/marca35.jpg" alt="Brand 2"></div>
-        <div class="carousel-item"><img src="img/marcas/marca17.png" alt="Brand 3"></div>
-        <div class="carousel-item"><img src="img/marcas/Marca19.png" alt="Brand 4"></div>
-        <div class="carousel-item"><img src="img/marcas/Marca2.jpg" alt="Brand 5"></div>
+        <div class="carousel-item"><img src="img/marcas/marca10.jpg" alt="marca1"></div>
+        <div class="carousel-item"><img src="img/marcas/marca11.jpg" alt="marca 2"></div>
+        <div class="carousel-item"><img src="img/marcas/marca13.jpg" alt="marca3"></div>
+        <div class="carousel-item"><img src="img/marcas/marca14.png" alt="marca 4"></div>
+        <div class="carousel-item"><img src="img/marcas/marca16.png" alt="marca 5"></div>
+        <div class="carousel-item"><img src="img/marcas/marca32.jpg" alt="marca 1"></div>
+        <div class="carousel-item"><img src="img/marcas/marca35.jpg" alt="marca 2"></div>
+        <div class="carousel-item"><img src="img/marcas/marca17.png" alt="marca 3"></div>
+        <div class="carousel-item"><img src="img/marcas/Marca19.png" alt="marca 4"></div>
+        <div class="carousel-item"><img src="img/marcas/Marca2.jpg" alt="marca 5"></div>
     </div>
 </div>
 </section>
