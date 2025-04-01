@@ -26,3 +26,9 @@ Versão Antiga do site
 ![image](https://github.com/user-attachments/assets/6571fea8-03dc-420c-a013-c3fc94c59eb5)
 
 -- Contactos --
+
+
+Nova versão 
+
+![mac](https://github.com/user-attachments/assets/b69bab30-bb06-43c6-acf0-2e6a4d077f8b)
+
