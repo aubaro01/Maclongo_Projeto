@@ -1,6 +1,5 @@
 <?php 
-require_once 'php/db.php';
-require_once 'php/funcs.php'; 
+require_once '../Backend/Config/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -33,7 +32,7 @@ require_once 'php/funcs.php';
 <body>
 <header>
     <?php 
-    include("./Templates/navBar.php");
+    include("../Templates/navBar.php");
     ?>
 </header>
 
@@ -55,7 +54,7 @@ require_once 'php/funcs.php';
         <p>
           Valorizamos a confiança e a parceria com nossos clientes, trabalhando sempre para construir relacionamentos duradouros e de sucesso.
         </p>
-        <a href="/php/Empresa.php" class="btn btn-primary">Saiba Mais</a>
+        <a href="about.php" class="btn btn-primary  #1e3a5f   #4c8bf5">Saiba Mais</a>
       </div>
       <div class="about-image">
         <img src="img/logo.png" alt="Sobre a Empresa">
@@ -72,25 +71,25 @@ require_once 'php/funcs.php';
             <img src="/img/Gedore.jpg" alt="Produto 1" class="product-image">
             <h2>Alicates</h2>
             <p>Material resistente e durável, ideal para uso profissional.</p>
-            <a href="/php/Produtos.php" class="product-button">Saber Mais</a>        
+            <a href="Produtos.php" class="product-button">Saber Mais</a>        
         </div>
         <div class="product-slide">
             <img src="/img/TAF.jpg" alt="Produto 2" class="product-image">
             <h2>Lixas</h2>
             <p>Discos potentes e eficientes, ideais para uso em ambientes industriais.</p>
-            <a href="/php/Produtos.php" class="product-button">Saber Mais</a>        
+            <a href="Produtos.php" class="product-button">Saber Mais</a>        
         </div>
         <div class="product-slide">
             <img src="/img/Klingspor.jpg" alt="Produto 3" class="product-image">
             <h2>Discos abrasivos de corte</h2>
             <p>Discos potentes e eficientes, ideais para uso em ambientes industriais.</p>
-            <a href="/php/Produtos.php" class="product-button">Saber Mais</a>        
+            <a href="Produtos.php" class="product-button">Saber Mais</a>        
         </div>
         <div class="product-slide">
             <img src="/img/logotipo.jpg" alt="Produto 4" class="product-image">
             <h2>Produto 4</h2>
             <p>Discos potentes e eficientes, ideais para uso em ambientes industriais.</p>
-            <a href="/php/Produtos.php" class="product-button">saber Mais</a>        
+            <a href="Produtos.php" class="product-button">saber Mais</a>        
         </div>
     </div>
 </div>
@@ -103,14 +102,14 @@ require_once 'php/funcs.php';
             <img src="img/service1.jpg" alt="Afiação de Ferramentas">
             <h3>Afiação e Recuperação de Ferramentas</h3>
             <p>Prestamos serviços de afiação e recuperação de ferramentas de corte.</p>
-            <a href="/php/Produtos.php" class="service-button">Saber Mais</a>                
+            <a href="service.php" class="service-button">Saber Mais</a>                
         </article>
 
         <article class="service_card"> 
             <img src="img/service2.jpg" alt="Reparação de Ferramentas Elétricas">
             <h3>Reparação de Ferramentas Elétricas</h3>
             <p>Serviços especializados em reparação de ferramentas elétricas e industriais.</p>
-            <a href="/php/Produtos.php" class="service-button">Saber Mais</a>        
+            <a href="service.php" class="service-button">Saber Mais</a>        
         </article>
     </div>
 </section>
@@ -134,7 +133,7 @@ require_once 'php/funcs.php';
 
   <div class="contact-form">
     <h2>Fale connosco</h2>
-    <form action="/php/contacts.php" method="POST">
+    <form action="contacts.php" method="POST">
     <div class="input-box">
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" required>
@@ -153,7 +152,7 @@ require_once 'php/funcs.php';
                 </div>
                 <div class="input-box checkbox">
                     <input type="checkbox" id="privacidade" name="privacidade" required>
-                    <label for="privacidade">Li e aceito os <a href="#">política de privacidade</a></label>
+                    <label for="privacidade">Li e aceito os <a href="/inludes/terms&priv.php"> termos política de privacidade</a></label>
                 </div>
                 <div class="button">
                     <input type="submit" value="Enviar">

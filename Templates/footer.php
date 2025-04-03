@@ -2,7 +2,7 @@
     <div class="footer-container">
         <div class="footer-logo">
             <a href="index.php"><img src="img/logo.png" alt="Logo da Empresa" class="footer-logo-img"></a>
-            <p>MACLONGO Comércio de Máquinas e Ferramentas</p>
+            <p>MACLONGO, Comércio de Máquinas e Ferramentas</p>
         </div>
 
         <div class="footer-links">
@@ -20,6 +20,6 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2024 MACLONGO. Todos os direitos reservados.</p>
-        <p>by <strong><a href="#" target="_blank" rel="noopener noreferrer">aubaro</a></strong></p>
+        <p>by <strong><a href="https://github.com/aubaro01" target="_blank" rel="noopener noreferrer">aubaro</a></strong></p>
     </div>
 </footer>

@@ -1,178 +1,210 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once '../Config/db.php';
-    require_once '../models/funcs.php';
-    
-    $db = new DB();
-    
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        
-        if (checkCredentials($db, $email, $password)) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['email'] = $email;
+require_once '../Backend/Controller/userController.php';
 
-            $sql = "SELECT Nome_log FROM login_dash WHERE Login = ?";
-            $args = array($email);
-            $result = $db->send2db($sql, $args);
-            
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $_SESSION['Nome_log'] = $row['Nome_log'];
-            }
+$controller = new LoginController();
 
-            header('Location: ../admin/DashMac.php');
-            exit;
-        } else {
-            $error = "Credenciais inválidas. Por favor, tente novamente.";
-        }
-    }
-}
+$controller->handleLogin();
 ?>
 
-<!DOCTYPE html>
-<html lang="pt">
+
+<<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MacDash</title>
-    <link rel="shortcut icon" href="/assets/images/iconHead.png">
+    <title>Login - Área Corporativa</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+        }
+        
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff; 
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; 
-            margin: 0;
-            padding: 0 20px; 
-            box-sizing: border-box; 
+            min-height: 100vh;
+            background-color: #f5f5f5;
         }
-
+        
         .login-container {
-            background-color: #f0f4f8;
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-            padding: 40px; 
-            width: 100%; 
-            max-width: 400px; 
-            text-align: center; 
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            padding: 35px;
+        }
+        
+        .login-header {
+            margin-bottom: 30px;
+        }
+        
+        .login-header h1 {
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .input-group {
+            margin-bottom: 22px;
+        }
+        
+        .input-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #333;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: #fafafa;
+        }
+        
+        .input-group input:focus {
+            border-color: #4d4d4d;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+        
+        .remember-forgot label {
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember-forgot input {
+            margin-right: 8px;
+        }
+        
+        .remember-forgot a {
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .remember-forgot a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+        
+        .login-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 12px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .login-button:hover {
+            background-color: #222;
+        }
+        
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .signup-link a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .signup-link a:hover {
+            text-decoration: underline;
         }
 
-        .logo {
-            margin-bottom: 20px; 
-            width: 100px; 
+        .divider {
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
         }
 
-        h2 {
-            color: #333; 
-            margin-bottom: 20px; 
-            font-size: 24px; 
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e0e0e0;
         }
 
-        .form-group {
-            margin-bottom: 20px; 
+        .divider span {
+            position: relative;
+            background-color: white;
+            padding: 0 15px;
+            color: #888;
+            font-size: 12px;
         }
 
-        label {
-            display: block; 
-            margin-bottom: 5px; 
-            color: #555; 
-            font-weight: bold; 
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
-            border-radius: 4px; 
-            box-sizing: border-box; 
-            font-size: 16px; 
-            transition: border-color 0.3s ease; 
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #007bff; 
-            outline: none; 
-        }
-
-        button {
-            width: 100%; 
-            padding: 12px; 
-            background-color: #007bff; 
-            color: #ffffff; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            font-size: 16px; 
-            transition: background-color 0.3s ease; 
-        }
-
-        button:hover {
-            background-color: #0056b3; 
-        }
-
-        .error-message {
-            color: red; 
-            margin: 10px 0; 
-            font-weight: bold; 
-        }
-
-        .btn-voltar3 {
-            display: inline-block; 
-            margin-top: 15px; 
-            text-decoration: none; 
-            color: #007bff; 
-            transition: color 0.3s ease; 
-        }
-
-        .btn-voltar3:hover {
-            color: #0056b3; 
-        }
-
-        @media (max-width: 600px) {
-            .login-container {
-                padding: 30px; 
-            }
-
-            input[type="text"],
-            input[type="password"],
-            button {
-                font-size: 18px; 
-                padding: 15px; 
-            }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <img src="/assets/images/logo.png" alt="Logo" class="logo"> 
-        <h2>Login</h2>
-        <form method="POST">
-            <div class="form-group">
-                <label for="email">Login</label>
-                <input type="text" id="email" name="email" required>
+        <div class="login-header">
+            <h1>Acesso ao Sistema</h1>
+            <p>Insira suas credenciais para acessar sua conta</p>
+        </div>
+        
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="username" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+            
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
             </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
+
+            <button type="submit" class="login-button">Login</button>
+  
         </form>
-        <?php if (isset($error)) { ?>
-            <div class="error-message"><?php echo $error; ?></div>
-        <?php } ?>
-        <div class="detalhes-produto3">
-            <a href="/public/index.php" class="btn-voltar3">Voltar</a>
+
+        <div class="footer">
+            © 2025 Maclongo. Todos os direitos reservados.
         </div>
     </div>
 </body>
