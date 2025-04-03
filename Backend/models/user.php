@@ -1,83 +1,54 @@
 <?php
+require_once '/Config/db.php';  
 
-class Produto {
-    // Atributos
-    private $id;
-    private $nome;
-    private $descricao;
-    private $preco;
-    private $quantidade;
+class User {
+    private $conn;
+    private $table_name = "admin"; 
 
-    // Construtor
-    public function __construct($id, $nome, $descricao, $preco, $quantidade) {
-        $this->id = $id;
-        $this->nome = $nome;
-        $this->descricao = $descricao;
-        $this->preco = $preco;
-        $this->quantidade = $quantidade;
+    public $id;
+    public $nome;
+    public $LogName;
+    public $Password;
+
+    public function __construct($db) {
+        $this->conn = $db;
     }
 
-    // Getters e Setters
-    public function getId() {
-        return $this->id;
-    }
+       public function getUser() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id = :id LIMIT 0,1";
+        
+        $stmt = $this->conn->prepare($query);
 
-    public function setId($id) {
-        $this->id = $id;
-    }
+        $stmt->bindParam(":id", $this->id);
 
-    public function getNome() {
-        return $this->nome;
-    }
+        $stmt->execute();
 
-    public function setNome($nome) {
-        $this->nome = $nome;
-    }
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $this->nome = $row['nome'];
+            $this->LogName = $row['LogName'];
+            $this->Password = $row['Password'];
+            $this->outro = $row['outro'];
 
-    public function getDescricao() {
-        return $this->descricao;
-    }
-
-    public function setDescricao($descricao) {
-        $this->descricao = $descricao;
-    }
-
-    public function getPreco() {
-        return $this->preco;
-    }
-
-    public function setPreco($preco) {
-        $this->preco = $preco;
-    }
-
-    public function getQuantidade() {
-        return $this->quantidade;
-    }
-
-    public function setQuantidade($quantidade) {
-        $this->quantidade = $quantidade;
-    }
-
-    // Métodos adicionais
-    public function aumentarEstoque($quantidade) {
-        $this->quantidade += $quantidade;
-    }
-
-    public function diminuirEstoque($quantidade) {
-        if ($this->quantidade >= $quantidade) {
-            $this->quantidade -= $quantidade;
-        } else {
-            echo "Estoque insuficiente!";
+            return true;
         }
+
+        return false;
     }
 
-    // Método para exibir as informações do produto
-    public function exibirProduto() {
-        echo "ID: " . $this->getId() . "\n";
-        echo "Nome: " . $this->getNome() . "\n";
-        echo "Descrição: " . $this->getDescricao() . "\n";
-        echo "Preço: " . number_format($this->getPreco(), 2, ',', '.') . "\n";
-        echo "Quantidade em estoque: " . $this->getQuantidade() . "\n";
+    public function checkCredentials($db, $email, $password)
+    {
+        $sql = "SELECT * FROM login_dash WHERE Login = ? AND password = ?";
+        $args = [$email, $password];
+        $result = $db->send2db($sql, $args);
+    
+        if ($result->num_rows > 0) {
+            return true;
+        }
+    
+        return false;
     }
+
 }
 ?>

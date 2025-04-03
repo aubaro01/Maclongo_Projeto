@@ -1,37 +1,16 @@
 <?php
-require_once '../App/models/funcs.php';
-require '../App/Config/db.php';
+require_once '../Backend/Config/db.php';  
+require_once '../Backend/Controller/ContaController.php';  
 
-$success = null;
-$error_message = null; 
+$db = new DB();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = htmlspecialchars(trim($_POST['nome']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $telefone = htmlspecialchars(trim($_POST['telefone']));
-    $mensagem = htmlspecialchars(trim($_POST['mensagem']));
+$contactController = new ContactController($db);
 
-    if (!isset($_POST['privacidade'])) {
-        $error_message = "Por favor, aceite os termos de privacidade.";
-        $success = false;
-    } else if (!empty($nome) && !empty($email) && !empty($telefone) && !empty($mensagem)) {
-        try {
-            $db = new DB();
-            $success = addContact($db, $nome, $email, $telefone, $mensagem);
-
-            if (!$success) {
-                $error_message = "Falha ao salvar os dados. Por favor, tente novamente.";
-            }
-        } catch (Exception $e) {
-            $error_message = "Erro: " . $e->getMessage();
-            $success = false;
-        }
-    } else {
-        $error_message = "Por favor, preencha todos os campos obrigatórios.";
-        $success = false;
-    }
-}
+$result = $contactController->handleFormSubmission();
+$success = $result['success'];
+$error_message = $result['error_message'];
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-PT">
