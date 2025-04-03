@@ -55,7 +55,7 @@ require_once 'php/funcs.php';
         <p>
           Valorizamos a confiança e a parceria com nossos clientes, trabalhando sempre para construir relacionamentos duradouros e de sucesso.
         </p>
-        <a href="/php/Empresa.php" class="btn btn-primary  #1e3a5f">Saiba Mais</a>
+        <a href="/php/Empresa.php" class="btn btn-primary  #1e3a5f   #4c8bf5">Saiba Mais</a>
       </div>
       <div class="about-image">
         <img src="img/logo.png" alt="Sobre a Empresa">

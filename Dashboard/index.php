@@ -71,7 +71,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-    <!-- Marcações do Dia -->
+    
     <div class="daily-appointments">
         <h3>Marcações do Dia</h3>
         <?php

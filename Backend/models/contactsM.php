@@ -8,7 +8,7 @@ class Produto {
     private $preco;
     private $quantidade;
 
-    // Construtor
+
     public function __construct($id, $nome, $descricao, $preco, $quantidade) {
         $this->id = $id;
         $this->nome = $nome;
@@ -17,7 +17,7 @@ class Produto {
         $this->quantidade = $quantidade;
     }
 
-    // Getters e Setters
+
     public function getId() {
         return $this->id;
     }
