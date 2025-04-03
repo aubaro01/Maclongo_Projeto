@@ -1,4 +1,3 @@
-<? php 
 <nav>
 <div class="logo-name">
         <div class="logo-image">
@@ -41,4 +40,4 @@
         </ul>
     </div>
 </nav>
-?>
+
