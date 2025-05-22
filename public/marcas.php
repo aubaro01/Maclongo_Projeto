@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MACLONGO: Produtos e serviços de alta qualidade para a indústria e ferramentas">
+    <meta name="keywords" content="Maclongo, peças, ferramentas, indústria, web site, loja online" />
+    <meta property="og:title" content="Maclongo: Produtos e Serviços para a indústria" />
+    <meta property="og:description" content="Conheça os nossos produtos e serviços." />
+    <meta property="og:image" content="https://maclongo.pt/assets/images/loja.jpg" />
+    <meta property="og:url" content="https://maclongo.pt/public/index.php" />
+    <meta property="og:type" content="website" />
     <title>Marcas - MacLongo</title>
     <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/Style_pages.css">

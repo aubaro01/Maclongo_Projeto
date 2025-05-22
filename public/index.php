@@ -7,6 +7,12 @@ require_once '../Backend/Config/db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MACLONGO: Produtos e serviços de alta qualidade para a indústria e ferramentas">
+    <meta name="keywords" content="Maclongo, peças, ferramentas, indústria, web site, loja online" />
+    <meta property="og:title" content="Maclongo: Produtos e Serviços para a indústria" />
+    <meta property="og:description" content="Conheça os nossos produtos e serviços." />
+    <meta property="og:image" content="https://maclongo.pt/assets/images/loja.jpg" />
+    <meta property="og:url" content="https://maclongo.pt/public/index.php" />
+    <meta property="og:type" content="website" />
     <title>Maclongo</title>
     <link rel="stylesheet" href="css/style_Main.css">
     <link rel="shortcut icon" href="img/iconHead.png">
@@ -128,7 +134,7 @@ require_once '../Backend/Config/db.php';
     <iframe style="color:black" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.7118936990582!2d-8.514981123870015!3d41.20625437132355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd246362b8a71945%3A0x77cdc960c08ecd78!2sMaclongo-com%C3%A9rcio%20De%20M%C3%A1quinas%20E%20Ferramentas%20Lda!5e0!3m2!1spt-PT!2spt!4v1728663073568!5m2!1spt-PT!2spt" frameborder="0"></iframe>
     <h2>Horário de funcionamento</h2>
     <p><img src="img/horario_icon.png" alt="Horario" class="horario-icon"> <strong>2ª a 6ª</strong></p>
-    <p>8:30 - 12:30/14:00 - 18:30</p>
+    <p><strong>8:30 - 12:30/14:00 - 18:30</strong></p>
   </div>
 
   <div class="contact-form">
@@ -179,29 +185,7 @@ require_once '../Backend/Config/db.php';
 </section>
 </main>
 
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <a href="index.php"><img src="img/logo.png" alt="Logo da Empresa" class="footer-logo-img"></a>
-            <p>MACLONGO Comércio de Máquinas e Ferramentas</p>
-        </div>
+<?php include_once '../Templates/footer.php'; ?>
 
-        <div class="footer-links">
-            <h4>Links Úteis</h4>
-            <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </div>
-        <div class="footer-social">
-            <a href="https://www.facebook.com/people/Maclongo-Com%C3%A9rcio-de-M%C3%A1quinas-e-Ferramentas-Lda/100066271255190/"><i class="fab fa-facebook-f"></i></a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 MACLONGO. Todos os direitos reservados.</p>
-    </div>
-</footer>
 </body>
 </html>

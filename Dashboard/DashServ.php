@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new DB();
 
     if ($_POST['action'] === 'edit') {
-        // Código de edição do serviço
         $id = $_POST['id'];
         $nome = $_POST['Nome'];
         $descricao = $_POST['descricao'];
@@ -20,11 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         editServices($db, $id, $nome, $descricao, $imagem);
     } elseif ($_POST['action'] === 'delete') {
-        // Código de exclusão do serviço
         $id = $_POST['id'];
-        deleteServices($db, $id); // Chama a função para deletar o serviço do banco de dados
+        deleteServices($db, $id); 
     } elseif ($_POST['action'] === 'add') {
-        // Código de adição de novo serviço
         $nome = $_POST['Nome_ser'];
         $descricao = $_POST['descricao_ser'];
 
@@ -37,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         addServices($db, $nome, $descricao, $imagem);
     }
 
-    // Redireciona para a mesma página após a ação
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit;
 }
@@ -116,12 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php  include '/assest/view/modalServ.php';?>
 
-
 <?php include '/assest/view/modalEditServ.php'?>
 
-
 <?php include '/assest/view/deleteServ.php'?>
-
 
 <script>
 function openDeleteModal(serviceId) {
@@ -132,7 +125,6 @@ function openDeleteModal(serviceId) {
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
-
 </script>
 </body>
 </html>

@@ -8,6 +8,13 @@ require_once '../App/models/funcs.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MACLONGO: Produtos e serviços de alta qualidade para a indústria e ferramentas">
+    <meta name="keywords" content="Maclongo, peças, ferramentas, indústria, web site, loja online" />
+    <meta property="og:title" content="Maclongo: Produtos e Serviços para a indústria" />
+    <meta property="og:description" content="Conheça os nossos produtos e serviços." />
+    <meta property="og:image" content="https://maclongo.pt/assets/images/loja.jpg" />
+    <meta property="og:url" content="https://maclongo.pt/public/index.php" />
+    <meta property="og:type" content="website" />
     <title>Produtos - MacLongo</title>
     <link rel="stylesheet" href="/assets/css/Style_pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
