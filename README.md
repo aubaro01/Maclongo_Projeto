@@ -1,7 +1,29 @@
-<strong>Maclongo_Projeto</strong>
 
- 
-Restruturação e implementação de novas funções para o site
+# Maclongo
+
+Um website para uma loja de vendas de produtos e serviços ligados a indústria.
+
+## Stack utilizada
+
+**Front-end**: HTML, CSS, JavaScript, Bootstrap
+
+**Back-end**: PHP, MySQl
+
+
+## Funcionalidades
+
+- Registro Contactos por parte de Clientes.
+- Dashboard para adicionar, editar ou apagar serviços/produtos.
+- Acessibilidade e usabilidade
+
+
+## Por melhorar
+
+ - Melhorias de usabilidade e design.
+
+
+
+
 
 Versão Antiga do site 
 
